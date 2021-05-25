@@ -1,0 +1,93 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lobster', cursive;
+    background-color: #ffeffb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+:root {
+    --fill: #d827ac;
+    --empty: #ffa8e9;
+}
+
+.container {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    color: var(--fill);
+    position: relative;
+    max-width: 100%;
+    width: 350px;
+}
+
+.progress-container::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: var(--empty);
+    bottom: 50%;
+    z-index: -1;
+}
+
+.progress {
+    position: absolute;
+    height: 4px;
+    width: 0%;
+    background-color: var(--fill);
+    bottom: 50%;
+    z-index: -1;
+    transition: 0.4s ease; 
+}
+
+.circle {
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--empty);
+    /* I dont understand what these transistions are for */
+    transition: border 0.4s ease 0.1s;
+}
+
+.circle.active {
+    border: 3px solid var(--fill);
+}
+
+.button {
+    border: 0;
+    border-radius: 5px;
+    background-color: var(--fill);
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+/* Gives button click effect */
+.button:active {
+    transform: scale(.96);
+}
+
+.button:disabled {
+    background-color: var(--empty);
+    cursor: not-allowed;
+}
